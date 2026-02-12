@@ -43,15 +43,29 @@ function WebTabsLayout() {
       <WebTabs.Screen
         name="index"
         options={{
-          title: "Home",
-          tabBarIcon: (props) => <MaterialIcons {...props} name="home" />,
+          title: "Dashboard",
+          tabBarIcon: (props) => <MaterialIcons {...props} name="dashboard" />,
         }}
       />
       <WebTabs.Screen
-        name="info"
+        name="add"
         options={{
-          title: "Info",
-          tabBarIcon: (props) => <MaterialIcons {...props} name="info" />,
+          title: "Add",
+          tabBarIcon: (props) => <MaterialIcons {...props} name="add" />,
+        }}
+      />
+      <WebTabs.Screen
+        name="analytics"
+        options={{
+          title: "Analytics",
+          tabBarIcon: (props) => <MaterialIcons {...props} name="analytics" />,
+        }}
+      />
+      <WebTabs.Screen
+        name="settings"
+        options={{
+          title: "Settings",
+          tabBarIcon: (props) => <MaterialIcons {...props} name="settings" />,
         }}
       />
     </WebTabs>
@@ -62,23 +76,45 @@ function NativeTabsLayout() {
   return (
     <NativeTabs>
       <NativeTabs.Trigger name="index">
-        <NativeTabs.Trigger.Label>Home</NativeTabs.Trigger.Label>
+        <NativeTabs.Trigger.Label>Dashboard</NativeTabs.Trigger.Label>
         <NativeTabs.Trigger.Icon
           {...Platform.select({
-            ios: { sf: { default: "house", selected: "house.fill" } },
+            ios: { sf: { default: "chart.bar", selected: "chart.bar.fill" } },
             default: {
-              src: <NativeTabs.Trigger.VectorIcon family={MaterialIcons} name="home" />,
+              src: <NativeTabs.Trigger.VectorIcon family={MaterialIcons} name="dashboard" />,
             },
           })}
         />
       </NativeTabs.Trigger>
-      <NativeTabs.Trigger name="info">
-        <NativeTabs.Trigger.Label>Info</NativeTabs.Trigger.Label>
+      <NativeTabs.Trigger name="add">
+        <NativeTabs.Trigger.Label>Add</NativeTabs.Trigger.Label>
         <NativeTabs.Trigger.Icon
           {...Platform.select({
-            ios: { sf: "cursorarrow.rays" },
+            ios: { sf: { default: "plus.circle", selected: "plus.circle.fill" } },
             default: {
-              src: <NativeTabs.Trigger.VectorIcon family={MaterialIcons} name="info" />,
+              src: <NativeTabs.Trigger.VectorIcon family={MaterialIcons} name="add" />,
+            },
+          })}
+        />
+      </NativeTabs.Trigger>
+      <NativeTabs.Trigger name="analytics">
+        <NativeTabs.Trigger.Label>Analytics</NativeTabs.Trigger.Label>
+        <NativeTabs.Trigger.Icon
+          {...Platform.select({
+            ios: { sf: "chart.line.uptrend.xyaxis" },
+            default: {
+              src: <NativeTabs.Trigger.VectorIcon family={MaterialIcons} name="analytics" />,
+            },
+          })}
+        />
+      </NativeTabs.Trigger>
+      <NativeTabs.Trigger name="settings">
+        <NativeTabs.Trigger.Label>Settings</NativeTabs.Trigger.Label>
+        <NativeTabs.Trigger.Icon
+          {...Platform.select({
+            ios: { sf: { default: "gearshape", selected: "gearshape.fill" } },
+            default: {
+              src: <NativeTabs.Trigger.VectorIcon family={MaterialIcons} name="settings" />,
             },
           })}
         />
